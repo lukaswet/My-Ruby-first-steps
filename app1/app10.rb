@@ -1,0 +1,6 @@
+#encoding: cp866
+
+1000.times do
+	print "ђгбпя"
+	sleep rand(0.1..1)
+end
