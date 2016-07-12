@@ -8,7 +8,14 @@ $ ->
 		client.send get_random_login()
 
 	client.onmessage = (message) ->
-		add_entry_to_log message.data
+		json = JSON.parse message.data
+		switch json.type
+			when 'error'
+				add_entry_to_log json.message
+			when 'chat_message'
+				add_chat_message json
+			when 'joined'
+				add_entry_to_log "В чат зайшов користувач #{json.username}"	
 
 	$('#chat_input').keyup (e) ->
 		if e.keyCode == 13
@@ -22,4 +29,7 @@ $ ->
 
 	get_random_login = ->
 		usernames[Math.floor(Math.random()*usernames.length)]	
+
+	add_chat_message = (json) ->	
+		add_entry_to_log "<i>#{json.username}:</i> #{json.message}"
 				
