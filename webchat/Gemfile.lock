@@ -109,6 +109,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  coffee-script
   middleman (>= 4.0.0)
   middleman-livereload
   tzinfo-data
