@@ -32,7 +32,12 @@ loop do
 	print "Enter age: "
 	age = gets.to_i
 
-	aa = { :name => name, :age => age }
+	# Спосіб 1
+	# aa = { :name => name, :age => age }
 
-	add_person aa
+	# add_person aa
+
+	# Спосіб 2 в одну строку
+	add_person :age => age, :name => name
+
 end
